@@ -9,6 +9,7 @@
 #include <QtPlugin>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -25,10 +26,10 @@ QLabel#date { font-size: 18px; color: #a6adc8; }
 QLabel#host { font-size: 14px; color: #7f849c; }
 QLabel#error { color: #f38ba8; font-size: 14px; }
 QFrame#card { background: rgba(24, 24, 37, 220); border: 1px solid #45475a; border-radius: 14px; }
-QPushButton.user { background: #313244; border: 1px solid #45475a; border-radius: 10px; padding: 10px 16px;
+QPushButton[class="user"] { background: #313244; border: 1px solid #45475a; border-radius: 10px; padding: 10px 16px;
                    font-size: 15px; text-align: left; }
-QPushButton.user:checked { background: #3b4a6b; border: 1px solid #89b4fa; }
-QPushButton.user:hover { border: 1px solid #89b4fa; }
+QPushButton[class="user"]:checked { background: #3b4a6b; border: 1px solid #89b4fa; }
+QPushButton[class="user"]:hover { border: 1px solid #89b4fa; }
 QLineEdit { background: #11111b; border: 1px solid #45475a; border-radius: 8px; padding: 9px 12px;
             font-size: 16px; color: #f5f5fa; selection-background-color: #89b4fa; }
 QLineEdit:focus { border: 1px solid #89b4fa; }
@@ -36,9 +37,9 @@ QPushButton#login { background: #89b4fa; color: #11111b; border: none; border-ra
                     font-size: 16px; font-weight: bold; }
 QPushButton#login:hover { background: #b4cdfb; }
 QPushButton#login:disabled { background: #45475a; color: #7f849c; }
-QPushButton.power { background: transparent; border: 1px solid #45475a; border-radius: 8px; padding: 8px 14px;
+QPushButton[class="power"] { background: transparent; border: 1px solid #45475a; border-radius: 8px; padding: 8px 14px;
                     font-size: 14px; color: #bac2de; }
-QPushButton.power:hover { border: 1px solid #f38ba8; color: #f38ba8; }
+QPushButton[class="power"]:hover { border: 1px solid #f38ba8; color: #f38ba8; }
 )";
 
 class LoginScreen : public QWidget
