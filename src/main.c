@@ -188,6 +188,13 @@ static bool on_close(struct pg_window *win, void *data)
     return false;
 }
 
+static struct pg_widget *hspace(void)
+{
+    struct pg_widget *s = pg_spacer_new();
+    pg_widget_set_expand(s, true, false);
+    return s;
+}
+
 static void build(void)
 {
     int sw = 1024, sh = 768;
@@ -208,7 +215,7 @@ static void build(void)
 
     struct pg_widget *top = pg_hbox(12);
     pg_widget_add(top, pg_label_new_font("PureC OS", PGF_HEAD, PG_COLOR_ACCENT));
-    pg_widget_add(top, pg_spacer_new());
+    pg_widget_add(top, hspace());
     char host[64];
     session_host_name(host, sizeof(host));
     struct pg_widget *host_label = pg_label_new_font(host, PGF_BODY, PG_COLOR_TEXT3);
@@ -267,7 +274,7 @@ static void build(void)
     pg_widget_add(root, bottom_space);
 
     struct pg_widget *bottom = pg_hbox(10);
-    pg_widget_add(bottom, pg_spacer_new());
+    pg_widget_add(bottom, hspace());
     struct pg_widget *restart = pg_button_new("Restart", PGI_RESTART, PG_BUTTON_SECONDARY);
     struct pg_widget *off = pg_button_new("Power off", PGI_POWER, PG_BUTTON_SECONDARY);
     pg_widget_on(restart, PG_SIGNAL_CLICKED, power, (void *)1);
