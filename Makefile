@@ -1,7 +1,7 @@
 ROOT_DIR ?= $(abspath ../..)
 include $(ROOT_DIR)/mk/toolchain.mk
 
-NAME := qt-login
+NAME := login
 VERSION := $(shell cat VERSION)
 PKGREL ?= 1
 OUT := $(BIN_DIR)/$(NAME)
@@ -56,7 +56,7 @@ package: all
 	rm -f $(OUT)/$(NAME)-*.pkg.tar.gz*
 	python3 $(ROOT_DIR)/mk/pkg/mkpkg.py --name $(NAME) --version $(VERSION)-$(PKGREL) \
 		--desc "Graphical login screen (display manager)" -o $(OUT) \
-		--depend "video-backend>=1.1.0" \
+		--depend "video-backend>=1.1.0" --conflict qt-login \
 		--file usr/bin/$(NAME)=$(TARGET) \
 		--file usr/lib/init/system/display-manager.service=$(CURDIR)/units/display-manager.service
 	if [ -f "$(SIGN_KEY)" ]; then python3 $(ROOT_DIR)/mk/pkg/pkgsign.py sign $(SIGN_KEY) $(PKG_FILE) $(PKG_FILE).sig; fi

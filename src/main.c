@@ -291,7 +291,7 @@ static void build(void)
 int main(int argc, char **argv)
 {
     if (!pg_init(argc, argv)) {
-        fprintf(stderr, "qt-login: cannot connect to videod\n");
+        fprintf(stderr, "login: cannot connect to videod\n");
         return 1;
     }
     ui.session = -1;
