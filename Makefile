@@ -15,7 +15,7 @@ LIBPUREC := $(LIB_DIR)/libpurec.a
 LIBPURECRYPT := $(LIB_DIR)/libpurecrypt.a
 CRT0 := $(LIB_DIR)/crt0.o
 LINKER_SCRIPT := $(ROOT_DIR)/linker-userspace.ld
-ACCOUNTS := $(ROOT_DIR)/src/programs/accounts
+ACCOUNTS := $(ROOT_DIR)/programs/PureC-OS-Core-Programs/accounts
 
 CFLAGS := $(CPPFLAGS) -I$(ROOT_DIR)/src/libc/include/hosted -I$(LIBGUI_DIR)/include -I$(ACCOUNTS) \
 	-I$(ROOT_DIR)/libxcrypt/include $(USER_CFLAGS) -O2 -Wall -Wextra $(DEPFLAGS)
@@ -47,7 +47,7 @@ $(CRT0) $(LIBPUREC):
 	$(MAKE) -C $(ROOT_DIR)/src/libc
 
 $(LIBPURECRYPT):
-	$(MAKE) -C $(ROOT_DIR)/src/programs $(LIBPURECRYPT)
+	$(MAKE) -C $(ROOT_DIR)/programs/PureC-OS-Core-Programs ROOT_DIR=$(ROOT_DIR) $(LIBPURECRYPT)
 
 PKG_FILE := $(OUT)/$(NAME)-$(VERSION)-$(PKGREL)-x86_64.pkg.tar.gz
 SIGN_KEY ?= $(HOME)/.config/purec-pkg/signing.pem
